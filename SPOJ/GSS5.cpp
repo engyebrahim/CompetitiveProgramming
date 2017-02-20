@@ -8,7 +8,7 @@ struct node
           left=max(a.left,b.left+a.sum);
           right=max(b.right,b.sum+a.right);
           sum=a.sum+b.sum;
-          best=max(a.best,max(b.best,a.right+b.left));
+          best=max(a.best,max(b.best,a.right+b.left));   // a-> + <-b
      }
 };
 node tree[40002]; int arr[10001];
@@ -22,19 +22,20 @@ void update(int n,int s,int e)
 }
 node solve(int n,int s,int e,int a,int b)
 {
+     if(b<a)    // if y==b at this call -> solve(1,0,n-1,y+1,b).left);
+      return  tree[0];
      node ret;
      int m=(s+e)/2;
-     if(b<a)
-      return  tree[0];
+     //devied the condutions to avoid wrong ranges 
      if(s>=a&&e<=b)
        return  ret= tree[n];
        
-     if(m>=b)
+     if(m>=b)   //if  [m+1,e] out of rang [a,b], means no sol at  return solve(n*2+1,m+1,e,a,b);
      return solve(n*2,s,m,a,b);
      
-     if(a>m)
+     if(a>m)  //if  [s,m] out rang [a,b], means no sol at  return solve(n*2,s,m,a,b);
      return solve(n*2+1,m+1,e,a,b);
-  
+     //if two braches have sol
      node x=solve(n*2,s,m,a,b);
      node y=solve(n*2+1,m+1,e,a,b);
      ret.merge(x,y);
