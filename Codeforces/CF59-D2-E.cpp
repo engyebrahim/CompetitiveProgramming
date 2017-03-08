@@ -1,15 +1,16 @@
 /*
-
+use normal bfs with small edits
+use node and its parent to access vis array  and parent array
 */
 #include<bits/stdc++.h>
 using namespace std;
 int n, x,y;
-int parent [3003][3003];
-bool vis[3003][3003];
+int parent [3003][3003];  // to find path
+bool vis[3003][3003];   
 vector<vector<int> >v(3003,vector<int>());
-set<pair<int,pair<int,int>>> s;
+set<pair<int,pair<int,int>>> s;  //  save  forbidden triplets
 struct node{
-     int pp,p,x,c;
+     int pp,p,x,c;  //x cur node ,c saves cost, p saves parent and pp saves grandparent
 };
 void fun(){
      node cur,nw;
@@ -23,7 +24,7 @@ void fun(){
           q.pop();
           if(vis[cur.p][cur.x]) continue;
           vis[cur.p][cur.x]=1;
-          parent[cur.p][cur.x]=cur.pp;
+          parent[cur.p][cur.x]=cur.pp;  
           if(cur.x==n) {
                ans=cur.c;
                x=cur.p;
