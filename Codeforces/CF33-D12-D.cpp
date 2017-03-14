@@ -1,3 +1,4 @@
+//http://codeforces.com/blog/entry/733
 #include<bits/stdc++.h>
 using namespace std;
 bitset<1001> s[1001],tmp;
