@@ -1,4 +1,8 @@
 //trie tree
+/*
+1- Put all words of dictionary in trie and mark every end word 
+2- try to get maximum score by given characters using back traching
+*/
 #include<bits/stdc++.h>
 using namespace std;
 vector<vector< int> > tr;
