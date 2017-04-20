@@ -35,7 +35,7 @@ bool arr[1001][1001];
 vector<vector<int> >v,bc;
 stack<pair<int,int> > s;
 pair<int,int> cur;
-void bcc(int p,int node)
+void bcc(int p,int node)   //find BCCs
 {
      dfn[node]=low[node]=idx++;
      int ch;
@@ -50,7 +50,7 @@ void bcc(int p,int node)
                if(dfn[node]<=low[ch])
                {
                     bc.push_back(vector<int>());
-                    do
+                    do   
                     {
                          cur=s.top();
                          s.pop();
@@ -61,7 +61,7 @@ void bcc(int p,int node)
           else if(ch!=p) low[node]=min(low[node],dfn[ch]);
      }
 }
-bool bi(int node)
+bool bi(int node)   // bipartite
 {
      bool ans=1;
      for(int i=0;i<v[node].size();i++)
@@ -100,7 +100,7 @@ int main(){
           {
                memset(bi_clr,-1,sizeof bi_clr);
                memset(clr,-1,sizeof clr);
-               for(int j=0;j<bc[i].size();j++) clr[bc[i][j]]=i;
+               for(int j=0;j<bc[i].size();j++) clr[bc[i][j]]=i;  // art point can be in more than one BCC
                bi_clr[bc[i][0]]=0;
                if(!bi(bc[i][0]))
                  for(int j=0;j<bc[i].size();j++)
