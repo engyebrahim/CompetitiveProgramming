@@ -1,6 +1,32 @@
 /*
--find all bcc 
--check if bcc has odd cycles (bipartite graph has only even cycles)
+to understand the problem
+
+Concerns to remember:
+- Table can't have just a single person. So if 1 person, then must be removed
+- Also can't have even # of persons
+- It is circular. E.g. if they are 1 5 3 7, then 1-7 must not hate each other 
+
+- Say you have N nodes. 
+- If we can arrange the N such that rules are ok, then answer is 0
+- Otherwise, for every node X, can we find a setup (removing others) where X can be ok? If no, then X must be removed. Think in that in an individual way. For each X do that separately.
+
+Examples
+1) 
+3 3 ( 3 nodes, 3 edges, forming a trianlge)
+1 2
+1 3
+2 3
+
+A) We can't set them all together
+B) Can we make node=1 with us? never
+- if we removed node 2, then remaining over all 2 nodes = rejected
+- if we removed nodes 2, 3, then remaining over all 1 node = rejected
+C) same for nodes 2, 3. So we must remove the 3 nodes
+
+solution
+-we need get cycles because the table is round then we will find all BCCs in the graph by using the articulation points
+-check if cycles (BBCs) has odd number of nodes (bipartite graph has only even cycles)
+-then every node in nonbipartite BBC can sit at the Round Table  
 */
 #include<bits/stdc++.h>
 using namespace std;
