@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+pair<int,int> p[303];
+int ccw(int i,int j,int k)
+{
+     return (p[j].first-p[i].first)*(p[k].second-p[i].second)- (p[j].second-p[i].second)*(p[k].first-p[i].first);
+}
+int main(){
+     int n;
+     cin>>n;
+     for(int i=0;i<n;i++)
+          cin>>p[i].first>>p[i].second;
+     double maxp=-1,maxn=-1,val,ans=-1;
+     for(int i=0;i<n;i++)
+     {
+          for(int j=i+1;j<n;j++)
+          {
+               maxp=-1,maxn=-1;
+               for(int k=0;k<n;k++)
+               {
+                    if(i==k||j==k) continue;
+                    val=ccw(i,j,k);
+                    if(val>0) maxp=max(maxp,.5*val);
+                    else maxn=max(maxn,-.5*val);
+               }
+               if(maxp>-1&&maxn>-1)ans=max(ans,maxp+maxn);
+          }
+     }
+     printf("%.9lf\n",ans);
+}
