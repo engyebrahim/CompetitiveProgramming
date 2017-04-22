@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool cmp(pair<int ,char>a,pair<int ,char>b)
+{
+     if(a.first!=b.first) return a.first>b.first;
+     return a.second<b.second;
+}
+int main(){
+     int t;
+     cin>>t;
+     string s;
+     int arr[26]={};
+     vector<pair<int,char> >v;
+     getline(cin,s);
+     while(t--)
+     {
+          getline(cin,s);
+          for(int i=0;i<s.size();i++) if(isalpha(s[i])) arr[tolower(s[i])-'a']++;
+     }
+     for(int i=0;i<26;i++)
+     if(arr[i]) v.push_back(make_pair(arr[i],(char)('A'+i)));
+     sort(v.begin(),v.end(),cmp);
+     for(int i=0;i<v.size();i++)
+     cout<<v[i].second<<" "<<v[i].first<<endl;
+}
