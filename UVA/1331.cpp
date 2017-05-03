@@ -1,3 +1,4 @@
+//http://www.voidcn.com/blog/ck_boss/article/p-2571324.html
 #include<bits/stdc++.h>
 using namespace std;
 struct Point
