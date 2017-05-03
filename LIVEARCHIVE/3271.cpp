@@ -1,3 +1,8 @@
+/*
+-we will use bits every time we must have the nodes that have judges and the distination node 
+-from every mask find shortest path using bfs from distination node to only true nodes in the mask
+  then if all judge nodes reachable minimizethe ans with the cost of this bfs 
+*/
 #include<bits/stdc++.h>
 using namespace std;
 int n,d,j,f,ans,mask;
