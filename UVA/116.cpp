@@ -1,3 +1,6 @@
+/*
+  normal dp to return min path but use deque to save the smallest lex path
+*/
 #include<bits/stdc++.h>
 using namespace std;
 int n,m,arr[10][100];
