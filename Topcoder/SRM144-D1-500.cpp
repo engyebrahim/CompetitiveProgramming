@@ -1,3 +1,11 @@
+/*
+ff= pow(n,k)
+ft=!n/!(n-k)
+tt =ft/!k
+tf using dp
+
+first char represent value of sorted flag and the second for unick flag
+*/
 #include<bits/stdc++.h>
 using namespace std;
 int n,k; long long dp[101][8];
@@ -34,8 +42,9 @@ class Lottery
                     ss>>c;  t=(c=='T')?1:0;
                     ss>>c;  u=(c=='T')?1:0;
                     ss.clear();
-                    ft=1;
-                    // ft=!n/!(n-k)
+                    
+                    //ft=!n/!(n-k)
+                    ft=1; 
                     for(int i=n;i>n-k;i--) ft=ft*i;
                     
                     //tt =ft/!k
@@ -50,6 +59,7 @@ class Lottery
                     //ff= pow(n,k)
                     ff=1;
                     while(k--) ff*=n;
+                    
                     if(!t&&!u) res=ff;
                     else if(!t&&u) res=ft;
                     else if(t&u) res=tt;
