@@ -16,4 +16,3 @@ int main()
           cout<<x/g<<" "<<y/g<<endl;
      }
 }
-*long long 
