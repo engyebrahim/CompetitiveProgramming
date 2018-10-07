@@ -14,7 +14,6 @@ double polygon_area(vector<pair<double,double> >p)
     return fabs(ans);
 }
 //check if point lies on segment ab
-//https://www.geeksforgeeks.org/program-for-point-of-intersection-of-two-lines/
 bool pointOnSegment(pair<double,double>p,pair<double,double>a,pair<double,double>b)
 {
     return (p.first<max(a.first,b.first)||fabs(p.first-max(a.first,b.first))<1e-7)&&
@@ -23,7 +22,7 @@ bool pointOnSegment(pair<double,double>p,pair<double,double>a,pair<double,double
            (p.second>min(a.second,b.second)||fabs(p.second-min(a.second,b.second))<1e-7);
 }
 //get intersection point for two lines
-//
+//https://www.geeksforgeeks.org/program-for-point-of-intersection-of-two-lines/
 bool ex_point;
 pair<double,double> intersection_point(pair<double,double>a,pair<double,double>b,pair<double,double>c,pair<double,double>d)
 {
